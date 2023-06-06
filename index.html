@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        #toast {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            font-size: small;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+    </style>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--====== Title ======-->
+    <title>cwuom</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/my.jpg" type="image/png">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+    <link rel="stylesheet" href="assets/css/font2.css">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="assets/css/cb-slider.css">
+    
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="header-area">
+        <div class="header-card">
+            <div class="header-card-wrapper wow fadeInUp" data-wow-duration="2s"  data-wow-delay="1.2s" style="
+                -webkit-backdrop-filter: blur(10px);
+                -moz-backdrop-filter: blur(10px);
+                -ms-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                background-color: rgba(0, 0, 0, 0.253);border-radius: 5%;">
+                <img src="assets/images/blur.png" style="height: 160px; width: 100%; object-fit: cover;
+                margin: auto;
+                position: relative;
+                -webkit-mask: linear-gradient(black 0%, transparent 100%);
+                opacity: calc(0.8);
+                " alt="" />
+                <div class="card-profile">
+                    <img src="assets/images/my.jpg" alt="Profile">
+                
+                </div> <!-- card-profile -->
+                <div class="card-content text-center">
+                    <h3 class="card-title" style="color: #ffffff;">im-cwuom</h3>
+                    <p class="text" style="color: #ffffff;">你好！欢迎来到我的主页。<br><br>进一步了解，<br>请在此处任意选择一个平台与我深入♂交流<br>谢谢你的关注！</p>
+                    <a href="https://t.me/cwuoms_group" class="main-btn">Telegram Group</a>
+                </div> <!-- card-content -->
+                <div class="card-social text-center">
+                    <ul>
+                        <li><a href="https://github.com/cwuom"><i class="lni-github-original"></i></a></li>
+                        <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GbEhRNJvsc_2ZWfVX5BwbETl3Fvu3S7U&authKey=2OJrm03woKqoR0hUBdpPHog9i2fsorDXOl5SENAi38MZ78VrDs72KTyrqJhv7c9N&noverify=0&group_code=893018099"><i class="icon-QQ-circle-fill"></i></a></li>
+                        <li><a onclick="toWeChat()"><i class="icon-wechat-fill"></i></a></li>
+                        <li><a href="https://space.bilibili.com/473400804"><i class="icon-bilibili"></i></a></li>
+                    </ul>
+                    <p style="font-size: 10px;">
+                </div> <!-- card-social -->
+
+                <div class="card-social text-center">
+                    <ul>
+                        Last update - 2023.6.5 
+                    </ul>
+                    <p style="font-size: 10px;">
+                </div> <!-- card-social -->
+
+            </div> <!-- header-card -->
+        </div> <!-- header-card -->
+    </header>
+
+    
+<!-- 
+    <video muted autoplay="autoplay" loop="loop" style="           
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;">
+        <source  src="assets/bg.mp4" type="video/mp4"></source>
+    </video> -->
+
+    <video id="bg_video" class="video" 
+        muted autoplay preload loop
+        x5-video-player-fullscreen="true"
+        x5-playsinline
+        playsinline
+        webkit-playsinline
+        style="           
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;">
+        <source src="assets/bg.mp4" type="video/mp4" >
+    </video>
+
+    <img id="bg_img" class="video" 
+        muted autoplay preload loop
+        x5-video-player-fullscreen="true"
+        x5-playsinline
+        playsinline
+        webkit-playsinline
+        style="           
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;"src="assets/images/bg-1.jpg">
+    </img>
+
+
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== MODAL CONTACT PART ENDS ======-->
+
+    <!-- Modal -->
+
+    <!--====== MODAL CONTACT PART ENDS ======-->
+
+
+
+    <!--====== jquery js ======-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+
+    <!--====== Slick js ======-->
+    <script src="assets/js/slick.min.js"></script>
+
+
+    <!--====== WOW js ======-->
+    <script src="assets/js/wow.min.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+    
+    
+
+    
+    <span id="WeChatID">cwuomcwuom00</span>
+    
+    <div id="toast"> This is a toast message</div>
+    
+    <script>
+        function showToast(message) {
+            var toast = document.getElementById('toast');
+            toast.innerHTML = message;
+            toast.style.opacity = 1;
+            toast.style.transform = 'translateX(-50%) scale(1)';
+            
+            // 设置一个定时器，使Toast消息在一定时间后自动消失
+            setTimeout(function() {
+                toast.style.opacity = 0;
+                toast.style.transform = 'translateX(-50%) scale(0)';
+                window.location.href="weixin:\\"
+            }, 3000); // 3秒后消失
+
+        }
+
+        window.onload = function() {
+            var toast = document.getElementById('toast');
+            toast.style.opacity = 0;
+            toast.style.transform = 'translateX(-50%) scale(0)';
+        };
+
+        function toWeChat(){
+            showToast('微信号已复制，请打开微信搜索并添加我为好友。')
+            var val = document.getElementById('WeChatID');
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+        }
+        
+        function is_weixn(){  
+            var wx= window.navigator.userAgent.toLowerCase();
+            if (wx.match(/MicroMessenger/i) == 'micromessenger') {
+                console.log('是微信浏览器默认走微信')
+                return true; // 是微信端
+            } else {
+                console.log('不是微信浏览器绘制原生。');
+                return false;
+            } 
+        }
+
+        // videoPlay
+
+        if (is_weixn()){
+            var bg = document.getElementById('bg_video');
+            bg.style.display="none"
+        }else{
+            var bg = document.getElementById('bg_img');
+            bg.style.display="none"
+        }
+    </script>
+
+    
+</body>
+
+</html>

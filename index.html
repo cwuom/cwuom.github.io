@@ -18,6 +18,59 @@
         }
 
     </style>
+    
+    <style>
+        /* 按钮样式 */
+        .main-btn {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: 2px solid #0056b3;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+            perspective: 1000px;
+        }
+
+        .main-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transform: rotateX(90deg);
+            transform-origin: center bottom;
+            transition: transform 0.2s;
+            filter: blur(10px);
+        }
+
+        .main-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-btn:active {
+            transform: scale(1);
+            box-shadow: none;
+        }
+
+        .main-btn:hover::before {
+            transform: rotateX(0deg);
+        }
+
+        .main-btn:active::before {
+            transform: rotateX(90deg);
+        }
+    </style>
+
+    
+
+
     <!--====== Required meta tags ======-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,7 +78,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--====== Title ======-->
-    <title>cwuom</title>
+    <title>cwuom 🌐 Home Page</title>
 
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/my.jpg" type="image/png">
@@ -97,7 +150,7 @@
                 <div class="card-social text-center">
                     <ul>
                         <li><a href="https://github.com/cwuom"><i class="lni-github-original"></i></a></li>
-                        <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GbEhRNJvsc_2ZWfVX5BwbETl3Fvu3S7U&authKey=2OJrm03woKqoR0hUBdpPHog9i2fsorDXOl5SENAi38MZ78VrDs72KTyrqJhv7c9N&noverify=0&group_code=893018099"><i class="icon-QQ-circle-fill"></i></a></li>
+                        <li><a href="https://qm.qq.com/q/fbVRlMVucE"><i class="icon-QQ-circle-fill"></i></a></li>
                         <li><a onclick="toWeChat()"><i class="icon-wechat-fill"></i></a></li>
                         <li><a href="https://space.bilibili.com/473400804"><i class="icon-bilibili"></i></a></li>
                     </ul>
@@ -106,7 +159,7 @@
 
                 <div class="card-social text-center">
                     <ul>
-                        Last update - 2023.6.5 
+                        Last update - 2023.10.27 
                     </ul>
                     <p style="font-size: 10px;">
                 </div> <!-- card-social -->
@@ -193,7 +246,7 @@
     
 
     
-    <span id="WeChatID">cwuomcwuom00</span>
+    <span type="hidden" id="WeChatID">cwuomcwuom00</span>
     
     <div id="toast"> This is a toast message</div>
     
@@ -204,12 +257,11 @@
             toast.style.opacity = 1;
             toast.style.transform = 'translateX(-50%) scale(1)';
             
-            // 设置一个定时器，使Toast消息在一定时间后自动消失
             setTimeout(function() {
                 toast.style.opacity = 0;
                 toast.style.transform = 'translateX(-50%) scale(0)';
                 window.location.href="weixin:\\"
-            }, 3000); // 3秒后消失
+            }, 3000);
 
         }
 
@@ -237,7 +289,6 @@
             } 
         }
 
-        // videoPlay
 
         if (is_weixn()){
             var bg = document.getElementById('bg_video');

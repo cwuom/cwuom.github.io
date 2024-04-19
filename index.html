@@ -229,7 +229,7 @@
             toast.style.opacity = 0;
             toast.style.transform = 'translateX(-50%) scale(0)';
 
-            fetch('http://ouom.fun/wordOfTheDay.txt')
+            fetch('https://ouom.fun/wordOfTheDay.txt')
                 .then(response => response.text())
                 .then(text => {
                     const lines = text.split('\n').filter(line => line.trim() !== '');

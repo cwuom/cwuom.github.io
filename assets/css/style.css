@@ -579,70 +579,56 @@ p {
             font-size: 15px;
             line-height: 26px;
             padding-bottom: 20px; } }
-    .header-card .header-card-wrapper .card-social {
-      padding-top: 10px;
-      padding-bottom: 30px; }
-      @media (max-width: 767px) {
-        .header-card .header-card-wrapper .card-social {
-          padding-top: 5px;
-          padding-bottom: 10px; } }
-      .header-card .header-card-wrapper .card-social ul li {
-        display: inline-block;
-        margin: 0px 9px; }
-        @media (max-width: 767px) {
-          .header-card .header-card-wrapper .card-social ul li {
-            margin: 0 5px; } }
-        .header-card .header-card-wrapper .card-social ul li a {
-          width: 41px;
-          height: 40px;
-          line-height: 42px;
-          border: solid 1px #dddddd;
-          border-radius: 50%;
-          font-size: 18px;
-          color: #00b9f1;
-          -webkit-transition: all 0.3s ease-out 0s;
-          -moz-transition: all 0.3s ease-out 0s;
-          -ms-transition: all 0.3s ease-out 0s;
-          -o-transition: all 0.3s ease-out 0s;
-          transition: all 0.3s ease-out 0s;
-          position: relative;
-          z-index: 5;
-          overflow: hidden; }
-          .header-card .header-card-wrapper .card-social ul li a::before {
-            position: absolute;
-            content: '';
-            width: 0;
-            height: 0;
-            padding: 50%;
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate3d(-50%, -50%, 0) scale(0);
-            -moz-transform: translate3d(-50%, -50%, 0) scale(0);
-            -ms-transform: translate3d(-50%, -50%, 0) scale(0);
-            -o-transform: translate3d(-50%, -50%, 0) scale(0);
-            transform: translate3d(-50%, -50%, 0) scale(0);
-            -webkit-transition: all 0.3s ease-out 0s;
-            -moz-transition: all 0.3s ease-out 0s;
-            -ms-transition: all 0.3s ease-out 0s;
-            -o-transition: all 0.3s ease-out 0s;
-            transition: all 0.3s ease-out 0s;
-            background-color: #00b9f1;
-            z-index: -1; }
-          .header-card .header-card-wrapper .card-social ul li a:hover {
-            border-color: #00b9f1;
-            color: #fff; }
+            .header-card .header-card-wrapper .card-social ul li {
+              display: inline-block;
+              /* 使LI水平排列 */
+              margin: 0px 9px;
+              /* 间距可以根据需要调整 */
+            }
+            .header-card .header-card-wrapper .card-social ul li a {
+              width: 41px;
+              height: 40px;
+              line-height: 42px;
+              border: solid 2px #dddddd;
+              border-radius: 50%;
+              font-size: 18px;
+              color: #00b9f1;
+              position: relative;
+              z-index: 5;
+              overflow: hidden;
+              background-color: transparent;
+              /* 使用透明背景 */
+              display: inline-block;
+              text-align: center;
+              transition: transform 0.3s ease-out, color 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
+            }
+
+            .header-card .header-card-wrapper .card-social ul li a::before {
+              position: absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              left: 0;
+              top: 0;
+              background-color: #00b9f1;
+              z-index: -1;
+              transform: scale(0);
+              transition: transform 0.3s ease-out;
+            }
+
+            .header-card .header-card-wrapper .card-social ul li a:hover {
+              color: #fff;
+              transform: translateY(-5px) scale(1.05);
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+              background-color: #00b9f1;
+              /* 悬停时改变背景颜色 */
+            }
+
             .header-card .header-card-wrapper .card-social ul li a:hover::before {
-              -webkit-transform: translate3d(-50%, -50%, 0) scale(1.5);
-              -moz-transform: translate3d(-50%, -50%, 0) scale(1.5);
-              -ms-transform: translate3d(-50%, -50%, 0) scale(1.5);
-              -o-transform: translate3d(-50%, -50%, 0) scale(1.5);
-              transform: translate3d(-50%, -50%, 0) scale(1.5);
-              -webkit-transition-duration: 0.3s;
-              -moz-transition-duration: 0.3s;
-              -ms-transition-duration: 0.3s;
-              -o-transition-duration: 0.3s;
-              transition-duration: 0.3s; }
+              transform: scale(1.5);
+              transition-duration: 0.3s;
+            }
 
 /*===========================
     3.CONTACT css 

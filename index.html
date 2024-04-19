@@ -229,7 +229,7 @@
             toast.style.opacity = 0;
             toast.style.transform = 'translateX(-50%) scale(0)';
 
-            fetch('http://192.168.1.191:5500/wordOfTheDay.txt')
+            fetch('http://ouom.fun/wordOfTheDay.txt')
                 .then(response => response.text())
                 .then(text => {
                     const lines = text.split('\n').filter(line => line.trim() !== '');

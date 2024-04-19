@@ -21,6 +21,12 @@
     
     <style>
         /* 按钮样式 */
+        .main-btn-container {
+            perspective: 800px;
+            perspective-origin: center;
+            transform-style: preserve-3d;
+        }
+
         .main-btn {
             position: relative;
             display: inline-block;
@@ -30,41 +36,35 @@
             border: 2px solid #0056b3;
             border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-            perspective: 1000px;
-        }
-
-        .main-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            transform: rotateX(90deg);
-            transform-origin: center bottom;
-            transition: transform 0.2s;
-            filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+            transform: translateZ(0); /* Start at 0 depth */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .main-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
         }
 
-        .main-btn:active {
-            transform: scale(1);
-            box-shadow: none;
+
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            touch-action: none;
         }
 
-        .main-btn:hover::before {
-            transform: rotateX(0deg);
-        }
-
-        .main-btn:active::before {
-            transform: rotateX(90deg);
+        .background {
+            position: fixed; /* Use fixed instead of absolute */
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+            object-fit: cover;
+            z-index: -1; /* Keep it behind other content */
         }
     </style>
 
@@ -127,11 +127,11 @@
     <header class="header-area">
         <div class="header-card">
             <div class="header-card-wrapper wow fadeInUp" data-wow-duration="2s"  data-wow-delay="1.2s" style="
-                -webkit-backdrop-filter: blur(10px);
-                -moz-backdrop-filter: blur(10px);
-                -ms-backdrop-filter: blur(10px);
-                backdrop-filter: blur(10px);
-                background-color: rgba(0, 0, 0, 0.253);border-radius: 5%;">
+                -webkit-backdrop-filter: blur(15px);
+                -moz-backdrop-filter: blur(15px);
+                -ms-backdrop-filter: blur(15x);
+                backdrop-filter: blur(15px);
+                background-color: rgba(0, 0, 0, 0.25);border-radius: 5%;">
                 <img src="assets/images/blur.png" style="height: 160px; width: 100%; object-fit: cover;
                 margin: auto;
                 position: relative;
@@ -144,13 +144,17 @@
                 </div> <!-- card-profile -->
                 <div class="card-content text-center">
                     <h3 class="card-title" style="color: #ffffff;">im-cwuom</h3>
-                    <p class="text" style="color: #ffffff;">你好！欢迎来到我的主页。<br><br>进一步了解，<br>请在此处任意选择一个平台与我深入♂交流<br>谢谢你的关注！</p>
-                    <a href="https://t.me/cwuoms_group" class="main-btn">Telegram Group</a>
+                    <p class="text" style="color: #ffffff;">你好！欢迎来到我的主页。<br>进一步了解，<br>请在此处任意选择一个平台与我深入♂交流<br>谢谢你的关注！</p>
+                    <br>
+                    <a href="https://t.me/cwuoms_group" class="main-btn" id="dynamic3DButton">Telegram Group</a>
                 </div> <!-- card-content -->
+                
+                <br>
+
                 <div class="card-social text-center">
                     <ul>
                         <li><a href="https://github.com/cwuom"><i class="lni-github-original"></i></a></li>
-                        <li><a href="https://qm.qq.com/q/fbVRlMVucE"><i class="icon-QQ-circle-fill"></i></a></li>
+                        <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4NlPIfYcskn72tlU9qQHOmVCpQlRItPo&authKey=DOSMlMsSDlnLA4ZCd1mI7Ga%2Fw8QYH4ZZiZBh8WR60LyItkoa3w2clwyCasw6Astl&noverify=0&group_code=923071208"><i class="icon-QQ-circle-fill"></i></a></li>
                         <li><a onclick="toWeChat()"><i class="icon-wechat-fill"></i></a></li>
                         <li><a href="https://space.bilibili.com/473400804"><i class="icon-bilibili"></i></a></li>
                     </ul>
@@ -158,71 +162,27 @@
                 </div> <!-- card-social -->
 
                 <div class="card-social text-center">
-                    <ul>
-                        Last update - 2023.10.27 
+                    <br>
+                    <ul style="font-size: 15px;color: #ffffff;">
+                        每日一言
                     </ul>
+                    <ul id="random-word-container" style="font-size: 14px;"></ul>
                     <p style="font-size: 10px;">
+                    <br>
                 </div> <!-- card-social -->
 
             </div> <!-- header-card -->
         </div> <!-- header-card -->
     </header>
 
-    
-<!-- 
-    <video muted autoplay="autoplay" loop="loop" style="           
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;">
-        <source  src="assets/bg.mp4" type="video/mp4"></source>
-    </video> -->
 
-    <video id="bg_video" class="video" 
-        muted autoplay preload loop
-        x5-video-player-fullscreen="true"
-        x5-playsinline
-        playsinline
-        webkit-playsinline
-        style="           
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        object-fit: cover;">
-        <source src="assets/bg.mp4" type="video/mp4" >
+    <video id="bg_video" class="background" muted autoplay loop playsinline webkit-playsinline
+        style="position: absolute; width: 110%; height: 110%; object-fit: cover;">
+        <source src="assets/bg.mp4" type="video/mp4">
     </video>
 
-    <img id="bg_img" class="video" 
-        muted autoplay preload loop
-        x5-video-player-fullscreen="true"
-        x5-playsinline
-        playsinline
-        webkit-playsinline
-        style="           
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        object-fit: cover;"src="assets/images/bg-1.jpg">
-    </img>
-
-
-    <!--====== HEADER PART ENDS ======-->
-
-    <!--====== MODAL CONTACT PART ENDS ======-->
-
-    <!-- Modal -->
-
-    <!--====== MODAL CONTACT PART ENDS ======-->
-
+    <img id="bg_img" class="background" src="assets/images/bg-1.jpg"
+        style="position: absolute; width: 110%; height: 110%; object-fit: cover;">
 
 
     <!--====== jquery js ======-->
@@ -246,9 +206,8 @@
     
 
     
-    <span type="hidden" id="WeChatID">cwuomcwuom00</span>
     
-    <div id="toast"> This is a toast message</div>
+    <div id="toast">This is a toast message</div>
     
     <script>
         function showToast(message) {
@@ -269,20 +228,30 @@
             var toast = document.getElementById('toast');
             toast.style.opacity = 0;
             toast.style.transform = 'translateX(-50%) scale(0)';
+
+            fetch('http://192.168.1.191:5500/wordOfTheDay.txt')
+                .then(response => response.text())
+                .then(text => {
+                    const lines = text.split('\n').filter(line => line.trim() !== '');
+                    const randomLine = lines[Math.floor(Math.random() * lines.length)];
+                    const container = document.getElementById('random-word-container');
+                    container.innerHTML += `<li>${randomLine}</li>`;
+                    console.log(randomLine);
+                })
+                .catch(err => console.error('Failed to fetch word of the day:', err));
         };
 
         function toWeChat(){
             showToast('微信号已复制，请打开微信搜索并添加我为好友。')
-            var val = document.getElementById('WeChatID');
-            window.getSelection().selectAllChildren(val);
+            window.getSelection().selectAllChildren("cwuomcwuom00");
             document.execCommand("Copy");
         }
         
-        function is_weixn(){  
+        function is_weixn(){
             var wx= window.navigator.userAgent.toLowerCase();
             if (wx.match(/MicroMessenger/i) == 'micromessenger') {
                 console.log('是微信浏览器默认走微信')
-                return true; // 是微信端
+                return true;
             } else {
                 console.log('不是微信浏览器绘制原生。');
                 return false;
@@ -297,6 +266,39 @@
             var bg = document.getElementById('bg_img');
             bg.style.display="none"
         }
+    </script>
+
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const vw = window.innerWidth / 2;
+            const vh = window.innerHeight / 2;
+            const offsetX = (e.clientX - vw) * 0.02;
+            const offsetY = (e.clientY - vh) * 0.02;
+
+            const bgVideo = document.getElementById('bg_video');
+            const bgImage = document.getElementById('bg_img');
+            bgVideo.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            bgImage.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        });
+
+        document.getElementById('dynamic3DButton').addEventListener('mousemove', function (e) {
+            const rect = e.target.getBoundingClientRect();
+            const x = e.clientX - rect.left - (rect.width / 2);
+            const y = e.clientY - rect.top - (rect.height / 2);
+
+            // 动态调整3D旋转和阴影
+            const rotateX = y / rect.height * 30; // 最大旋转角度±30度
+            const rotateY = x / rect.width * 30;
+            e.target.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateZ(50px)`;
+            e.target.style.boxShadow = `${-x / 10}px ${y / 10}px 30px rgba(0, 0, 0, 0.6)`;
+        });
+
+        document.getElementById('dynamic3DButton').addEventListener('mouseleave', function (e) {
+            e.target.style.transform = 'translateZ(0) rotateX(0deg) rotateY(0deg)';
+            e.target.style.boxShadow = '0px 5px 15px rgba(0, 0, 0, 0.5)';
+        });
+
+
     </script>
 
     

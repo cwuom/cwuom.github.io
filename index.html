@@ -148,7 +148,7 @@
                     <a href="https://kano.kim/">进入我的Blog..</a>
                     <br>
                     <br>
-                    <a href="https://t.me/cwuoms_group" class="main-btn" id="dynamic3DButton">Telegram Group</a>
+                    <a href="https://t.me/ouom_pub" class="main-btn" id="dynamic3DButton">Telegram</a>
                 </div> <!-- card-content -->
                 
                 <br>
@@ -243,6 +243,9 @@
         };
 
         function toWeChat(){
+            showToast('微信号已复制，请打开微信搜索并添加我为好友。')
+            window.getSelection().selectAllChildren("cwuom00");
+            document.execCommand("Copy");
             showToast('暂不开放')
         }
         
@@ -304,3 +307,4 @@
 </body>
 
 </html>
+

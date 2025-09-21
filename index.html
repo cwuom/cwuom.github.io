@@ -145,7 +145,7 @@
                 <div class="card-content text-center">
                     <h3 class="card-title" style="color: #ffffff;">im-cwuom</h3>
                     <p class="text" style="color: #ffffff;">你好！欢迎来到我的主页。<br>进一步了解，请在此处任意选择一个平台与我深入♂交流</p>
-                    <a href="https://blog.ouom.fun/">进入我的Blog..</a>
+                    <a href="https://kano.kim/">进入我的Blog..</a>
                     <br>
                     <br>
                     <a href="https://t.me/cwuoms_group" class="main-btn" id="dynamic3DButton">Telegram Group</a>
@@ -158,7 +158,6 @@
                         <li><a href="https://github.com/cwuom"><i class="lni-github-original"></i></a></li>
                         <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4NlPIfYcskn72tlU9qQHOmVCpQlRItPo&authKey=DOSMlMsSDlnLA4ZCd1mI7Ga%2Fw8QYH4ZZiZBh8WR60LyItkoa3w2clwyCasw6Astl&noverify=0&group_code=923071208"><i class="icon-QQ-circle-fill"></i></a></li>
                         <li><a onclick="toWeChat()"><i class="icon-wechat-fill"></i></a></li>
-                        <li><a href="https://space.bilibili.com/473400804"><i class="icon-bilibili"></i></a></li>
                     </ul>
                     <p style="font-size: 10px;">
                 </div> <!-- card-social -->
@@ -231,7 +230,7 @@
             toast.style.opacity = 0;
             toast.style.transform = 'translateX(-50%) scale(0)';
 
-            fetch('https://ouom.fun/wordOfTheDay.txt')
+            fetch('https://kanowo.me/wordOfTheDay.txt')
                 .then(response => response.text())
                 .then(text => {
                     const lines = text.split('\n').filter(line => line.trim() !== '');
@@ -244,9 +243,7 @@
         };
 
         function toWeChat(){
-            showToast('微信号已复制，请打开微信搜索并添加我为好友。')
-            window.getSelection().selectAllChildren("cwuomcwuom00");
-            document.execCommand("Copy");
+            showToast('暂不开放')
         }
         
         function is_weixn(){
